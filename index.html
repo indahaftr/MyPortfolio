@@ -1,137 +1,231 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio-Indah</title>
-     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo indah.jpeg" />
-</head>
-<body>
-</body>
-    <!--BAGIAN NAVIGASI-->
-    <header>
-        <nav>
-            <div class="logo">my<span>Portfolio</span></div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#proyek">Project</a></li>
-                <li><a href="#medsos">Medsos</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!--BAGIAN HOME-->
-    <section id="home" class="hero">
-        <div class="hero-content">
-          <p>Hi, Welcome to my website!</p>
-          <h1>Indah Ayuningfitri</h1>
-          <p>
-            Website ini merupakan website portofolio saya, berisi 
-            deskripsi singkat tentang diri saya.
-          </p>
-          <a href="about" class="btn-hero">About Me</a>
-        </div>
-        <div class="hero-logo">
-            <img src="logo indah.jpeg" alt="Indah Ayuningfitri" />
-        </div>
-    </section>
-    <!--BAGIAN ABOUT-->
-    <section id="about" class="container about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <p>
-                Nama saya <strong>Indah Ayuningfitri</strong>, berasal 
-                dari <strong>Surabaya</strong> dan merupakan seorang siswi
-                <strong>SMA IPIEMS SURABAYA</strong>. Saya mengambil jurusan
-                IPA-Informatika, tergabung dalam Kelas XII Merdeka 2.
-            </p>
-            <p>
-                Saya bermimpi untuk menjadi seorang <strong>Data 
-                Analyst</strong> setelah lulus nanti. Saya juga senang dengan
-                Bahasa Inggris, sampai sekarang saya terus belajar dan mengasah
-                kemampuan berbahasa Inggris saya. 
+/* --- RESET & GLOBAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font bersih & modern */
+}
 
-            </p>
-        </div>
-    </section>
-    <!--BAGIAN PROYEK-->
-<section id="proyek" class="container bg-light proyek">
-  <h2>My Project</h2>
-  <div class="proyek-grid">
-    <a href="#" target="_blank" class="proyek-card">
-      <img src="project.png" alt="ExcelProject" />
-      <div class="proyek-info">
-        <h3>Excel</h3>
-        <p>My Excel Project</p>
-      </div>
-    </a>
+html {
+    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+}
 
-    <a href="#" target="_blank" class="proyek-card">
-      <img src="project.png" alt="ArduinoLed" />
-      <div class="proyek-info">
-        <h3>ArduinoLED</h3>
-        <p>Arduino LED Control Project</p>
-      </div>
-    </a>
+body {
+    background-color: #ffffff; /* Latar belakang putih bersih */
+    color: #001f3f; /* Warna teks Navy agar mudah dibaca */
+    line-height: 1.6;
+    overflow-x: hidden; /* Mencegah scroll horizontal yang mengganggu */
+}
 
-    <a href="#" target="_blank" class="proyek-card">
-      <img src="project.png" alt="ArduinoLyric" />
-      <div class="proyek-info">
-        <h3>Arduino Lirik</h3>
-        <p>Arduino Lyric Display Project</p>
-      </div>
-    </a>
+/* --- NAVIGASI --- */
+header {
+    background-color: #001f3f; /* Warna Navy yang elegan */
+    padding: 1rem 5%;
+    position: sticky; /* Menu tetap di atas saat di-scroll */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 5px solid #ffc0cb; /* Aksen Baby Pink di bawah navbar */
+}
 
-    <a href="#" target="_blank" class="proyek-card">
-      <img src="project.png" alt="Flowchart Project" />
-      <div class="proyek-info">
-        <h3>Flowchart</h3>
-        <p>My Flowchart Project</p>
-      </div>
-    </a>
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <a href="#" target="_blank" class="proyek-card">
-      <img src="project.png" alt="Website Project" />
-      <div class="proyek-info">
-        <h3>Website Sederhana</h3>
-        <p>My Website Project</p>
-      </div>
-    </a>
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
-    <a href="#" target="_blank" class="proyek-card">
-      <img src="project.png" alt="PSAJ Project" />
-      <div class="proyek-info">
-        <h3>Website PSAJ</h3>
-        <p>Website PSAJ Non Tulis</p>
-      </div>
-    </a>
-  </div>
-</section>
-<!-- BAGIAN MEDSOS -->
-<section id="medsos" class="container medsos">
-  <h2>Social Media</h2>
-  <div class="medsos-list">
-    <a href="https://github.com/indahaftr" target="_blank" class="medsos-item">
-      <img src="gbr_github.png" alt="GitHub" />
-      <span>Github</span>
-    </a>
-    <a href="https://instagram.com/indaahaftr" target="_blank" class="medsos-item">
-      <img src="gbr_ig.png" alt="Instagram" />
-      <span>Instagram</span>
-    </a>
-  </div>
-</section>
-<!-- BAGIAN FOOTER -->
-<footer>
-  <p>© 2026 Indah'sPortfolio</p>
-</footer>
-</body>
-</html>
+.logo span {
+    color: #ffc0cb; /* Warna Baby Pink untuk teks 'Portfolio' */
+}
 
+nav ul {
+    display: flex;
+    list-style: none;
+}
 
+nav ul li {
+    margin-left: 20px;
+}
 
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
 
+nav ul li a:hover {
+    color: #ffc0cb; /* Berubah jadi pink saat disentuh mouse */
+}
 
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #001f3f 0%, #003366 100%); /* Gradasi Navy */
+    color: white;
+    border-radius: 0 0 50px 50px; /* Membuat bagian bawah melengkung (bubbly) */
+    margin-bottom: 50px;
+}
 
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite; /* Animasi melayang */
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #ffc0cb;
+    color: #001f3f;
+    text-decoration: none;
+    border-radius: 30px; /* Sangat rounded/bubbly */
+    font-weight: bold;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi membal */
+}
+
+.btn-hero:hover {
+    transform: scale(1.1) rotate(-3deg); /* Membesar & miring sedikit saat hover */
+}
+
+.hero-logo img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Bulat sempurna */
+    border: 8px solid #ffc0cb;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- CONTAINER & HEADINGS --- */
+.container {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    width: 50%;
+    height: 5px;
+    background: #ffc0cb;
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    border-radius: 10px;
+}
+
+/* --- PROJECT GRID (PROYEK) --- */
+.proyek-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsif otomatis */
+    gap: 25px; /* Jarak antar kartu */
+    margin-top: 20px;
+}
+
+.proyek-card {
+    background: white;
+    border-radius: 25px; /* Gaya Bubbly */
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Bayangan lembut */
+    transition: 0.4s;
+    border: 2px solid transparent;
+}
+
+.proyek-card:hover {
+    transform: translateY(-15px); /* Kartu naik saat disentuh */
+    border-color: #ffc0cb;
+    box-shadow: 0 15px 35px rgba(255, 192, 203, 0.4);
+}
+
+.proyek-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.proyek-info {
+    padding: 20px;
+}
+
+.proyek-info h3 {
+    color: #001f3f;
+    margin-bottom: 8px;
+}
+
+/* --- SOCIAL MEDIA --- */
+.medsos-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.medsos-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #001f3f;
+    transition: 0.3s;
+}
+
+.medsos-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.medsos-item:hover img {
+    transform: bounce 0.5s; /* Animasi khusus ikon */
+    filter: drop-shadow(0 5px 15px rgba(255,192,203,0.8));
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #001f3f;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 50px 50px 0 0; /* Lengkungan terbalik di atas */
+}
+
+/* --- ANIMATIONS --- */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsivitas untuk Layar Kecil (HP) */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+    }
+    .hero-content {
+        margin-bottom: 30px;
+    }
+    nav ul {
+        display: none; /* Kamu bisa menambahkan menu hamburger nanti */
+    }
+}
