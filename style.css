@@ -1,30 +1,43 @@
-/* --- RESET & GLOBAL STYLES --- */
+/* CSS PORTFOLIO INDAH - VERSION 2: AESTHETIC BUBBLY  */
+
+/* --- 1. SETTING VARIABEL (ROOT) --- */
+:root {
+    --primary-navy: #001f3f;      
+    --accent-pink: #ffc0cb;        
+    --soft-pink: #fff0f3;         
+    --pure-white: #ffffff;
+    --text-dark: #2d3436;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-bubbly: 0 15px 0px rgba(255, 192, 203, 0.3);
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- 2. RESET & DASAR --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font bersih & modern */
-}
-
-html {
-    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+    font-family: var(--font-main);
 }
 
 body {
-    background-color: #ffffff; /* Latar belakang putih bersih */
-    color: #001f3f; /* Warna teks Navy agar mudah dibaca */
-    line-height: 1.6;
-    overflow-x: hidden; /* Mencegah scroll horizontal yang mengganggu */
+    background-color: var(--pure-white);
+    color: var(--text-dark);
+    line-height: 1.8; /* Memberikan ruang antar baris tulisan agar rapi */
 }
 
-/* --- NAVIGASI --- */
+/* --- 3. NAVIGASI (SOFT & ROUNDED) --- */
 header {
-    background-color: #001f3f; /* Warna Navy yang elegan */
-    padding: 1rem 5%;
-    position: sticky; /* Menu tetap di atas saat di-scroll */
-    top: 0;
+    background: rgba(255, 255, 255, 0.9); /* Efek kaca transparan */
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 20px; /* Melayang di atas */
+    margin: 0 5%;
+    border-radius: 50px;
     z-index: 1000;
-    border-bottom: 5px solid #ffc0cb; /* Aksen Baby Pink di bawah navbar */
+    padding: 15px 30px;
+    box-shadow: var(--shadow-soft);
+    border: 2px solid var(--accent-pink);
 }
 
 nav {
@@ -34,199 +47,191 @@ nav {
 }
 
 .logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    letter-spacing: -1px;
 }
 
 .logo span {
-    color: #ffc0cb; /* Warna Baby Pink untuk teks 'Portfolio' */
+    color: var(--accent-pink);
 }
 
 nav ul {
     display: flex;
     list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
+    gap: 25px;
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
-    font-weight: 500;
+    color: var(--primary-navy);
+    font-weight: 600;
+    font-size: 0.95rem;
     transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ffc0cb; /* Berubah jadi pink saat disentuh mouse */
+    color: var(--accent-pink);
 }
 
-/* --- HERO SECTION --- */
+/* --- 4. HERO SECTION (PLAYFUL) --- */
 .hero {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 80px 10%;
-    background: linear-gradient(135deg, #001f3f 0%, #003366 100%); /* Gradasi Navy */
-    color: white;
-    border-radius: 0 0 50px 50px; /* Membuat bagian bawah melengkung (bubbly) */
-    margin-bottom: 50px;
+    justify-content: space-around;
+    padding: 100px 10% 60px;
+    flex-wrap: wrap-reverse;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-content p:first-child {
+    color: var(--accent-pink);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    animation: float 3s ease-in-out infinite; /* Animasi melayang */
+    font-size: 3.5rem;
+    color: var(--primary-navy);
+    line-height: 1.1;
+    margin: 10px 0 20px;
 }
 
 .btn-hero {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background-color: #ffc0cb;
-    color: #001f3f;
+    padding: 15px 40px;
+    background-color: var(--primary-navy);
+    color: white;
     text-decoration: none;
-    border-radius: 30px; /* Sangat rounded/bubbly */
+    border-radius: 50px;
     font-weight: bold;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi membal */
+    margin-top: 20px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0, 31, 63, 0.2);
 }
 
 .btn-hero:hover {
-    transform: scale(1.1) rotate(-3deg); /* Membesar & miring sedikit saat hover */
+    transform: scale(1.05) rotate(-2deg);
+    background-color: var(--accent-pink);
+    color: var(--primary-navy);
 }
 
 .hero-logo img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%; /* Bulat sempurna */
-    border: 8px solid #ffc0cb;
+    width: 320px;
+    height: 320px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 70%; /* Bentuk abstrak bubbly */
+    background: var(--accent-pink);
     object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    animation: blob-animation 8s infinite alternate;
+    border: 5px solid var(--accent-pink);
 }
 
-/* --- CONTAINER & HEADINGS --- */
-.container {
-    padding: 60px 10%;
-    text-align: center;
+/* --- 5. ABOUT SECTION --- */
+.about {
+    background-color: var(--soft-pink);
+    border-radius: 60px;
+    margin: 40px 5%;
+    padding: 80px 10%;
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
+.about h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--primary-navy);
 }
 
-h2::after {
-    content: '';
-    width: 50%;
-    height: 5px;
-    background: #ffc0cb;
-    position: absolute;
-    bottom: -10px;
-    left: 25%;
-    border-radius: 10px;
+.about-content p {
+    max-width: 700px;
+    margin: 0 auto 20px;
+    font-size: 1.1rem;
 }
 
-/* --- PROJECT GRID (PROYEK) --- */
+/* --- 6. PROJECT GRID (RAISED CARDS) --- */
 .proyek-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsif otomatis */
-    gap: 25px; /* Jarak antar kartu */
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
 }
 
 .proyek-card {
-    background: white;
-    border-radius: 25px; /* Gaya Bubbly */
+    background: var(--pure-white);
+    border-radius: 35px;
     overflow: hidden;
     text-decoration: none;
-    color: inherit;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Bayangan lembut */
+    border: 2px solid #f0f0f0;
     transition: 0.4s;
-    border: 2px solid transparent;
 }
 
 .proyek-card:hover {
-    transform: translateY(-15px); /* Kartu naik saat disentuh */
-    border-color: #ffc0cb;
-    box-shadow: 0 15px 35px rgba(255, 192, 203, 0.4);
+    transform: translateY(-10px);
+    border-color: var(--accent-pink);
+    box-shadow: var(--shadow-bubbly);
 }
 
 .proyek-card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
 }
 
 .proyek-info {
-    padding: 20px;
+    padding: 25px;
+    text-align: left;
 }
 
 .proyek-info h3 {
-    color: #001f3f;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    color: var(--primary-navy);
 }
 
-/* --- SOCIAL MEDIA --- */
+/* --- 7. SOCIAL MEDIA (ICON ANIMATION) --- */
 .medsos-list {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    gap: 40px;
 }
 
 .medsos-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-decoration: none;
-    color: #001f3f;
-    transition: 0.3s;
+    color: var(--primary-navy);
+    font-weight: 700;
 }
 
 .medsos-item img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
+    width: 50px;
+    display: block;
+    margin: 0 auto 10px;
+    transition: 0.3s;
 }
 
 .medsos-item:hover img {
-    transform: bounce 0.5s; /* Animasi khusus ikon */
-    filter: drop-shadow(0 5px 15px rgba(255,192,203,0.8));
+    transform: translateY(-10px) scale(1.2);
 }
 
-/* --- FOOTER --- */
+/* --- 8. FOOTER --- */
 footer {
-    background-color: #001f3f;
-    color: white;
+    padding: 40px;
     text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    border-radius: 50px 50px 0 0; /* Lengkungan terbalik di atas */
+    font-weight: 600;
+    color: #b2bec3;
 }
 
-/* --- ANIMATIONS --- */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+/* --- 9. ANIMASI KHUSUS --- */
+@keyframes blob-animation {
+    0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 70%; }
+    100% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
 }
 
-/* Responsivitas untuk Layar Kecil (HP) */
+/* Responsif HP */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 40px;
-    }
-    .hero-content {
-        margin-bottom: 30px;
-    }
-    nav ul {
-        display: none; /* Kamu bisa menambahkan menu hamburger nanti */
-    }
+    .hero { text-align: center; }
+    .hero-content h1 { font-size: 2.5rem; }
+    header { top: 10px; }
 }
-
