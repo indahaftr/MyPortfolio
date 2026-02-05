@@ -1,11 +1,11 @@
-/* --- Root Variables: Warna Dreamy --- */
+/* --- Root Variables: Barbie Palette --- */
 :root {
-  --pastel-blue: #d0ebff;
-  --pastel-pink: #ffdce5;
-  --off-white: #fffdfc;
-  --text-color: #5d5c61;
-  --accent-pink: #ff8fab;
-  --glass: rgba(255, 255, 255, 0.5);
+  --hot-pink: #ff00a0;   /* Pink khas Barbie */
+  --soft-pink: #ffafcc;  /* Pink lembut */
+  --pink-light: #fff0f6;      /* Putih nuansa pink */
+  --blue: #a2d2ff;       /* Biru aksen Ken */
+  --ink: #4a0e2e;               /* Warna teks ungu tua biar gak kaku hitam */
+  --white: #ffffff;
 }
 
 /* --- Reset & Base --- */
@@ -16,125 +16,117 @@
 }
 
 body {
-  font-family: 'Trebuchet MS', sans-serif; /* Font aman tapi cantik */
-  background-color: var(--off-white);
-  color: var(--text-color);
-  line-height: 1.6;
-  scroll-behavior: smooth;
+  background-color: var(--barbie-light);
+  color: var(--ink);
+  font-family: 'Trebuchet MS', sans-serif;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
-/* --- Navigasi Melayang --- */
+/* --- Navigasi: Barbie Style --- */
 header {
-  position: fixed;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 800px;
-  background: var(--glass);
-  backdrop-filter: blur(10px); /* Efek blur kaca */
-  border-radius: 50px;
-  border: 2px solid white;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 4px solid var(--barbie-soft-pink);
+  padding: 15px 5%;
   z-index: 1000;
-  padding: 10px 25px;
-  box-shadow: 0 8px 32px rgba(255, 175, 204, 0.2);
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
-  font-weight: 900;
-  font-size: 1.2rem;
-  color: var(--accent-pink);
+  font-family: 'Brush Script MT', cursive; /* Font sambung biar mewah */
+  font-size: 2rem;
+  color: var(--barbie-hot-pink);
+  text-shadow: 2px 2px var(--barbie-soft-pink);
 }
 
-.logo span {
-  color: #a2d2ff;
-}
+.logo span { color: var(--barbie-blue); }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 15px;
+  gap: 20px;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
-  font-size: 0.85rem;
+  color: var(--ink);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.8rem;
   transition: 0.3s;
 }
 
 nav ul li a:hover {
-  color: var(--accent-pink);
+  color: var(--barbie-hot-pink);
+  letter-spacing: 1px;
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section: Dreamhouse Entrance --- */
 .hero {
-  min-height: 100vh;
   display: flex;
-  flex-wrap: wrap; /* Fleksibel di HP */
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  padding: 100px 10% 50px;
-  background: radial-gradient(circle at top right, var(--pastel-blue), transparent),
-              radial-gradient(circle at bottom left, var(--pastel-pink), transparent);
+  justify-content: space-around;
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #ffafcc 0%, #ffc8dd 100%);
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  color: white;
   text-align: center;
 }
 
-.hero-content {
-  flex: 1;
-  min-width: 300px;
-}
-
 .hero-content h1 {
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  color: var(--accent-pink);
-  margin: 10px 0;
-  text-shadow: 2px 2px white;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-family: 'Brush Script MT', cursive;
+  margin-bottom: 10px;
+  text-shadow: 4px 4px var(--barbie-hot-pink);
 }
 
 .btn-hero {
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 30px;
-  background-color: white;
-  color: var(--accent-pink);
+  padding: 15px 40px;
+  background: var(--barbie-hot-pink);
+  color: white;
   text-decoration: none;
   border-radius: 50px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(255, 143, 171, 0.3);
-  transition: 0.3s;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: 0 10px 0px #b50072;
+  transition: 0.2s;
+  margin-top: 20px;
 }
 
 .btn-hero:hover {
-  transform: translateY(-5px);
-  background-color: var(--accent-pink);
-  color: white;
+  transform: translateY(3px);
+  box-shadow: 0 5px 0px #b50072;
 }
 
 .hero-logo img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%; /* Foto bulat lucu */
-  border: 8px solid white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 280px;
+  height: 280px;
+  border: 10px solid white;
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(255, 0, 160, 0.3);
   object-fit: cover;
-  animation: float 4s ease-in-out infinite;
+  animation: barbieFloat 3s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+@keyframes barbieFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
 }
 
-/* --- Container Umum --- */
+/* --- Bagian About & Projects --- */
 .container {
   padding: 80px 10%;
   max-width: 1200px;
@@ -143,37 +135,38 @@ nav ul li a:hover {
 
 h2 {
   text-align: center;
-  font-size: 2rem;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 3.5rem;
+  color: var(--barbie-hot-pink);
   margin-bottom: 40px;
-  color: #89cff0; /* Biru muda */
 }
 
-/* --- Project Grid --- */
 .proyek-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  gap: 30px;
 }
 
 .proyek-card {
   background: white;
-  border-radius: 30px;
+  border: 3px solid var(--barbie-soft-pink);
+  border-radius: 25px;
   overflow: hidden;
   text-decoration: none;
-  color: inherit;
-  box-shadow: 0 10px 20px rgba(162, 210, 255, 0.2);
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
 .proyek-card:hover {
+  border-color: var(--barbie-hot-pink);
   transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(255, 175, 204, 0.4);
+  box-shadow: 0 20px 40px rgba(255, 0, 160, 0.1);
 }
 
 .proyek-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 3px solid var(--barbie-soft-pink);
 }
 
 .proyek-info {
@@ -181,11 +174,12 @@ h2 {
   text-align: center;
 }
 
-/* --- Medsos --- */
+/* --- Social Media: Glitter Glow --- */
 .medsos-list {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .medsos-item {
@@ -193,35 +187,41 @@ h2 {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: var(--text-color);
   font-weight: bold;
-  transition: 0.3s;
+  color: var(--ink);
 }
 
 .medsos-item img {
-  width: 60px;
+  width: 70px;
+  padding: 10px;
+  background: white;
+  border-radius: 20px;
+  border: 3px solid var(--barbie-soft-pink);
   margin-bottom: 10px;
   transition: 0.3s;
 }
 
 .medsos-item:hover img {
-  transform: rotate(360deg);
+  background: var(--barbie-soft-pink);
+  transform: scale(1.2) rotate(10deg);
 }
 
 /* --- Footer --- */
 footer {
-  text-align: center;
-  padding: 40px;
-  background: var(--pastel-pink);
+  background: var(--barbie-hot-pink);
   color: white;
-  border-radius: 50% 50% 0 0 / 20% 20% 0 0; /* Lengkungan awan */
+  text-align: center;
+  padding: 50px 20px;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
-/* --- Responsif HP --- */
+/* --- Mobile Fixes --- */
 @media (max-width: 768px) {
-  nav ul { display: none; } /* Menu disembunyikan di HP biar ga tumpuk */
-  header { width: auto; }
-  .hero { flex-direction: column-reverse; }
-  .hero-logo img { width: 180px; height: 180px; }
+  nav ul { display: none; }
+  .hero { flex-direction: column-reverse; padding-top: 120px; }
+  .hero-logo img { width: 200px; height: 200px; }
+  h2 { font-size: 2.5rem; }
 }
