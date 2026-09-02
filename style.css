@@ -1,20 +1,22 @@
 /* ==========================================
-   1. RESET & VARIABLES
+   1. IMPORT FONT & Y2K VARIABLES
    ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
 :root {
-    --primary-color: #7b61ff;         /* Ungu soft yang modern */
-    --primary-hover: #6246ea;
-    --accent-color: #ff8fa3;          /* Pink aksen manis */
-    --bg-main: #faf9fe;               /* Background utama sangat bersih & soft */
-    --bg-card: #ffffff;
-    --bg-light: #f3f0ff;              /* Kontras lembut untuk section alternatif */
-    --text-color: #2b2d42;            /* Teks utama (mudah dibaca) */
-    --text-muted: #6c757d;
-    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
-    --shadow-hover: 0 12px 28px rgba(123, 97, 255, 0.18);
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --nj-blue: #9be2f6;          /* Baby Blue khas Y2K */
+    --nj-pink: #ffb7d5;          /* Pastel Pink */
+    --nj-purple: #c4b5fd;        /* Soft Lavender */
+    --nj-mint: #bbf7d0;          /* Soft Mint */
+    --nj-dark: #22253f;          /* Teks kontras tinggi */
+    --nj-bg: #f4f6ff;            /* Background cerah pastel */
+    --nj-white: rgba(255, 255, 255, 0.75);
+    
+    --shadow-y2k: 4px 4px 0px var(--nj-dark);  /* Shadow tegas khas Y2K */
+    --shadow-soft: 0 10px 25px rgba(155, 226, 246, 0.35);
+    --border-y2k: 2px solid var(--nj-dark);
+    --radius-y2k: 20px;
+    --transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bounce effect */
 }
 
 * {
@@ -25,87 +27,89 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-main);
-    color: var(--text-color);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--nj-bg);
+    color: var(--nj-dark);
     line-height: 1.6;
+    /* Pola background titik-titik khas album NewJeans */
+    background-image: radial-gradient(var(--nj-purple) 1px, transparent 1px);
+    background-size: 24px 24px;
     overflow-x: hidden;
 }
 
+h1, h2, h3, .logo {
+    font-family: 'Fredoka', sans-serif; /* Font bulat & playful */
+}
+
 /* ==========================================
-   2. NAVBAR & HEADER
+   2. NAVBAR & HEADER (Y2K Glassmorphism)
    ========================================== */
 header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.85);
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1050px;
+    background: var(--nj-white);
     backdrop-filter: blur(12px);
+    border: var(--border-y2k);
+    border-radius: 50px;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    box-shadow: var(--shadow-y2k);
 }
 
 nav {
-    max-width: 1100px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 2rem;
 }
 
 .logo {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    color: var(--nj-dark);
+    letter-spacing: 0.5px;
 }
 
 .logo span {
-    color: var(--primary-color);
+    color: #ec4899;
+    background: var(--nj-blue);
+    padding: 2px 8px;
+    border-radius: 12px;
+    border: 1.5px solid var(--nj-dark);
+    display: inline-block;
+    transform: rotate(-3deg);
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--nj-dark);
     font-weight: 600;
     font-size: 0.95rem;
+    padding: 6px 14px;
+    border-radius: 20px;
     transition: var(--transition);
-    position: relative;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--accent-color);
-    transition: var(--transition);
-    border-radius: 2px;
 }
 
 nav a:hover {
-    color: var(--primary-color);
-}
-
-nav a:hover::after {
-    width: 100%;
+    background: var(--nj-pink);
+    border: 1.5px solid var(--nj-dark);
+    transform: translateY(-2px);
 }
 
 /* ==========================================
-   3. HERO SECTION
+   3. HERO SECTION (Bunny Vibes)
    ========================================== */
 .hero {
     min-height: 100vh;
@@ -114,77 +118,83 @@ nav a:hover::after {
     justify-content: space-between;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 6rem 1.5rem 2rem;
+    padding: 8rem 1.5rem 3rem;
     gap: 2rem;
 }
 
 .hero-content {
     flex: 1;
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: bounceIn 0.8s ease forwards;
 }
 
 .hero-content p:first-child {
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    display: inline-block;
+    font-size: 0.95rem;
+    background: var(--nj-mint);
+    color: var(--nj-dark);
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: var(--border-y2k);
+    margin-bottom: 1rem;
+    box-shadow: 2px 2px 0px var(--nj-dark);
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1.2;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.1;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--text-color) 30%, var(--primary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--nj-dark);
+    text-shadow: 3px 3px 0px var(--nj-pink);
 }
 
 .hero-content p:nth-of-type(2) {
-    color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
-    max-width: 480px;
+    max-width: 450px;
 }
 
 .btn-hero {
     display: inline-block;
-    padding: 0.85rem 2rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    font-weight: 600;
+    padding: 0.85rem 2.2rem;
+    background-color: var(--nj-blue);
+    color: var(--nj-dark);
+    font-weight: 700;
     border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(123, 97, 255, 0.3);
+    border: var(--border-y2k);
+    box-shadow: var(--shadow-y2k);
     transition: var(--transition);
 }
 
 .btn-hero:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(123, 97, 255, 0.4);
+    background-color: var(--nj-pink);
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--nj-dark);
 }
 
 .hero-logo {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    animation: fadeIn 1s ease-out forwards;
+    position: relative;
 }
 
+/* Bingkai foto profil ala CD / Stiker Y2K */
 .hero-logo img {
-    width: 280px;
-    height: 280px;
+    width: 290px;
+    height: 290px;
     object-fit: cover;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Bentuk organik melengkung manis */
-    box-shadow: var(--shadow-sm);
-    animation: float 5s ease-in-out infinite, morphing 8s ease-in-out infinite;
-    border: 4px solid #fff;
+    border-radius: 50%;
+    border: 4px solid var(--nj-dark);
+    box-shadow: var(--shadow-y2k);
+    animation: float 4s ease-in-out infinite, rotateSlow 20s linear infinite;
+    background: var(--nj-pink);
 }
 
 /* ==========================================
-   4. LAYOUT GENERAL & ABOUT SECTION
+   4. ABOUT SECTION
    ========================================== */
 .container {
     padding: 5rem 1.5rem;
@@ -193,115 +203,97 @@ nav a:hover::after {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.3rem;
     text-align: center;
     margin-bottom: 2.5rem;
-    position: relative;
-    font-weight: 700;
-}
-
-h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background: var(--accent-color);
-    margin: 0.5rem auto 0;
-    border-radius: 2px;
+    color: var(--nj-dark);
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--nj-pink);
+    padding: 4px 20px;
+    border-radius: 30px;
+    border: var(--border-y2k);
+    box-shadow: 3px 3px 0px var(--nj-dark);
 }
 
 .about-content {
-    background: var(--bg-card);
+    background: #fff;
     padding: 2.5rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    max-width: 800px;
+    border-radius: var(--radius-y2k);
+    border: var(--border-y2k);
+    box-shadow: var(--shadow-y2k);
+    max-width: 750px;
     margin: 0 auto;
-    transition: var(--transition);
-}
-
-.about-content:hover {
-    box-shadow: var(--shadow-hover);
+    position: relative;
 }
 
 .about-content p {
     margin-bottom: 1rem;
     font-size: 1.05rem;
-    color: var(--text-muted);
-}
-
-.about-content p:last-child {
-    margin-bottom: 0;
 }
 
 .about-content strong {
-    color: var(--primary-color);
+    color: #d946ef;
+    background: #fdf4ff;
+    padding: 2px 6px;
+    border-radius: 6px;
 }
 
 /* ==========================================
-   5. PROJECT SECTION
+   5. PROJECT SECTION (Card Grid)
    ========================================== */
 .bg-light {
-    background-color: var(--bg-light);
-    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: var(--border-y2k);
+    border-radius: 30px;
 }
 
 .proyek-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.8rem;
+    gap: 2rem;
 }
 
 .proyek-card {
     display: flex;
     flex-direction: column;
-    background: var(--bg-card);
-    border-radius: var(--radius-md);
+    background: #fff;
+    border-radius: var(--radius-y2k);
+    border: var(--border-y2k);
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-y2k);
     transition: var(--transition);
-    height: 100%;
 }
 
 .proyek-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
+    transform: translate(-5px, -5px);
+    box-shadow: 8px 8px 0px var(--nj-dark);
+    background: var(--nj-bg);
 }
 
 .proyek-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    background-color: #eee;
-    transition: var(--transition);
-}
-
-.proyek-card:hover img {
-    transform: scale(1.04);
+    border-bottom: var(--border-y2k);
 }
 
 .proyek-info {
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    padding: 1.2rem;
 }
 
 .proyek-info h3 {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-.proyek-card:hover .proyek-info h3 {
-    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    color: var(--nj-dark);
 }
 
 .proyek-info p {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: #555;
 }
 
 /* ==========================================
@@ -310,34 +302,34 @@ h2::after {
 .medsos-list {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
 .medsos-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.8rem 1.8rem;
-    background: var(--bg-card);
+    gap: 0.8rem;
+    padding: 0.8rem 2rem;
+    background: #fff;
+    border: var(--border-y2k);
     border-radius: 50px;
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    box-shadow: var(--shadow-sm);
+    color: var(--nj-dark);
+    font-weight: 700;
+    box-shadow: var(--shadow-y2k);
     transition: var(--transition);
 }
 
 .medsos-item img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
+    width: 26px;
+    height: 26px;
 }
 
 .medsos-item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-    color: var(--primary-color);
+    background: var(--nj-purple);
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--nj-dark);
 }
 
 /* ==========================================
@@ -345,88 +337,74 @@ h2::after {
    ========================================== */
 footer {
     text-align: center;
-    padding: 2rem 1.5rem;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    background-color: var(--bg-main);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 2.5rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
 /* ==========================================
-   8. ANIMATION KEYFRAMES
+   8. ANIMATIONS & EFFECTS
    ========================================== */
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-10px);
     }
 }
 
-@keyframes morphing {
-    0%, 100% {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    }
-    50% {
-        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
+@keyframes bounceIn {
+    0% {
         opacity: 0;
-        transform: translateY(25px);
+        transform: scale(0.9) translateY(20px);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1) translateY(0);
     }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 /* ==========================================
-   9. RESPONSIVE DESIGN (MOBILE & TABLET)
+   9. RESPONSIVE DESIGN (HP & Tablet)
    ========================================== */
 @media (max-width: 768px) {
+    header {
+        width: 95%;
+        top: 10px;
+    }
+
     nav {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
     }
 
     nav ul {
-        gap: 1rem;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 4px 10px;
     }
 
     .hero {
         flex-direction: column-reverse;
         text-align: center;
-        padding-top: 8rem;
+        padding-top: 10rem;
     }
 
     .hero-content h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-content p:nth-of-type(2) {
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 2.4rem;
     }
 
     .hero-logo img {
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
     }
 
     .container {
-        padding: 3.5rem 1.25rem;
-    }
-
-    .about-content {
-        padding: 1.5rem;
+        padding: 3.5rem 1rem;
     }
 }
