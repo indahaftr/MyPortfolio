@@ -1,248 +1,432 @@
-/* --- 1. SETTING VARIABEL (ROOT) --- */
-/* Kita simpan warna utama di sini agar mudah diganti jika bosan */
+/* ==========================================
+   1. RESET & VARIABLES
+   ========================================== */
 :root {
-  --navy: #001f3f;        /* Warna navy utama */
-  --navy-light: #003366;  /* Navy yang lebih terang untuk variasi */
-  --pink: #ff2a6d;        /* Pink yang vibrant untuk aksen */
-  --white: #ffffff;       /* Putih bersih */
-  --gray: #f4f4f4;        /* Abu-abu muda untuk background section */
-  --transition: 0.3s ease; /* Durasi transisi standar untuk animasi */
+    --primary-color: #7b61ff;         /* Ungu soft yang modern */
+    --primary-hover: #6246ea;
+    --accent-color: #ff8fa3;          /* Pink aksen manis */
+    --bg-main: #faf9fe;               /* Background utama sangat bersih & soft */
+    --bg-card: #ffffff;
+    --bg-light: #f3f0ff;              /* Kontras lembut untuk section alternatif */
+    --text-color: #2b2d42;            /* Teks utama (mudah dibaca) */
+    --text-muted: #6c757d;
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 12px 28px rgba(123, 97, 255, 0.18);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* --- 2. RESET DASAR --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Memastikan padding tidak merusak ukuran elemen */
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Font modern */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth; /* Membuat efek scroll halus saat link navigasi diklik */
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-  line-height: 1.6;
-  color: var(--navy);
-  background-color: var(--white);
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* --- 3. NAVIGASI (HEADER) --- */
+/* ==========================================
+   2. NAVBAR & HEADER
+   ========================================== */
 header {
-  background-color: var(--navy);
-  padding: 1rem 10%;
-  position: sticky;       /* Membuat navbar tetap di atas saat di-scroll */
-  top: 0;
-  z-index: 1000;          /* Memastikan navbar selalu di atas elemen lain */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
 nav {
-  display: flex;          /* Mengaktifkan flexbox */
-  justify-content: space-between; /* Logo di kiri, Menu di kanan */
-  align-items: center;    /* Menyejajarkan secara vertikal */
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
 }
 
 .logo {
-  color: var(--white);
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .logo span {
-  color: var(--pink);     /* Memberi warna pink pada teks 'Porto' */
+    color: var(--primary-color);
 }
 
 nav ul {
-  display: flex;
-  list-style: none;       /* Menghilangkan titik (bullet) pada list */
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
 }
 
-nav ul li {
-  margin-left: 30px;
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: var(--white);
-  font-weight: 500;
-  transition: var(--transition);
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+    border-radius: 2px;
 }
 
-nav ul li a:hover {
-  color: var(--pink);     /* Berubah warna saat mouse mendekat */
+nav a:hover {
+    color: var(--primary-color);
 }
 
-/* --- 4. HERO SECTION (HOME) --- */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   3. HERO SECTION
+   ========================================== */
 .hero {
-  height: 90vh;           /* Tinggi hero 90% dari tinggi layar */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10%;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); /* Gradasi Navy */
-  color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 2rem;
+    gap: 2rem;
 }
 
 .hero-content {
-  flex: 1;                /* Mengambil ruang yang tersedia */
+    flex: 1;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.hero-content p {
-  color: var(--pink);     /* Teks sambutan berwarna pink */
-  font-weight: bold;
-  margin-bottom: 10px;
+.hero-content p:first-child {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 .hero-content h1 {
-  font-size: 4rem;
-  margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-color) 30%, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p:nth-of-type(2) {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    max-width: 480px;
 }
 
 .btn-hero {
-  display: inline-block;
-  background-color: var(--pink);
-  color: var(--white);
-  padding: 12px 30px;
-  text-decoration: none;
-  border-radius: 50px;    /* Membuat tombol bulat (rounded) */
-  font-weight: bold;
-  margin-top: 20px;
-  transition: var(--transition);
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(123, 97, 255, 0.3);
+    transition: var(--transition);
 }
 
 .btn-hero:hover {
-  transform: translateY(-5px); /* Efek tombol naik sedikit saat hover */
-  box-shadow: 0 5px 15px rgba(255, 42, 109, 0.4);
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(123, 97, 255, 0.4);
+}
+
+.hero-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .hero-logo img {
-  width: 350px;           /* Ukuran logo/foto */
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Bentuk abstrak modern */
-  background: var(--pink);
-  padding: 10px;
-  animation: morphing 8s infinite alternate; /* Animasi bentuk bergerak */
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Bentuk organik melengkung manis */
+    box-shadow: var(--shadow-sm);
+    animation: float 5s ease-in-out infinite, morphing 8s ease-in-out infinite;
+    border: 4px solid #fff;
 }
 
-@keyframes morphing {
-  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-  100% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
-}
-
-/* --- 5. CONTAINER UMUM --- */
+/* ==========================================
+   4. LAYOUT GENERAL & ABOUT SECTION
+   ========================================== */
 .container {
-  padding: 100px 10%;
-  text-align: center;
+    padding: 5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  position: relative;
-  display: inline-block;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    font-weight: 700;
 }
 
-h2::after {               /* Garis bawah di setiap judul h2 */
-  content: '';
-  width: 50%;
-  height: 4px;
-  background-color: var(--pink);
-  position: absolute;
-  bottom: -10px;
-  left: 25%;
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
-/* --- 6. ABOUT ME --- */
+.about-content {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    max-width: 800px;
+    margin: 0 auto;
+    transition: var(--transition);
+}
+
+.about-content:hover {
+    box-shadow: var(--shadow-hover);
+}
+
 .about-content p {
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    color: var(--text-muted);
 }
 
-/* --- 7. PROYEK (GRID SYSTEM) --- */
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.about-content strong {
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   5. PROJECT SECTION
+   ========================================== */
 .bg-light {
-  background-color: var(--gray);
+    background-color: var(--bg-light);
+    border-radius: 24px;
 }
 
 .proyek-grid {
-  display: grid;          /* Menggunakan CSS Grid */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsif otomatis */
-  gap: 30px;              /* Jarak antar kartu */
-  margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
 }
 
 .proyek-card {
-  background-color: var(--white);
-  border-radius: 15px;
-  overflow: hidden;       /* Memastikan gambar tidak keluar dari radius */
-  text-decoration: none;
-  color: var(--navy);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    height: 100%;
 }
 
 .proyek-card:hover {
-  transform: translateY(-10px); /* Efek kartu terangkat */
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
 }
 
 .proyek-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;      /* Gambar tidak gepeng (tetap proporsional) */
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #eee;
+    transition: var(--transition);
+}
+
+.proyek-card:hover img {
+    transform: scale(1.04);
 }
 
 .proyek-info {
-  padding: 20px;
-  text-align: left;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
 
 .proyek-info h3 {
-  margin-bottom: 10px;
-  color: var(--navy);
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: var(--transition);
 }
 
-/* --- 8. MEDSOS --- */
+.proyek-card:hover .proyek-info h3 {
+    color: var(--primary-color);
+}
+
+.proyek-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   6. SOCIAL MEDIA SECTION
+   ========================================== */
 .medsos-list {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .medsos-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: var(--navy);
-  font-weight: bold;
-  transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.8rem;
+    background: var(--bg-card);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
 }
 
 .medsos-item img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-  transition: var(--transition);
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
 .medsos-item:hover {
-  color: var(--pink);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    color: var(--primary-color);
 }
 
-.medsos-item:hover img {
-  transform: scale(1.2) rotate(10deg); /* Ikon membesar dan miring saat hover */
-}
-
-/* --- 9. FOOTER --- */
+/* ==========================================
+   7. FOOTER
+   ========================================== */
 footer {
-  background-color: var(--navy);
-  color: var(--white);
-  text-align: center;
-  padding: 30px;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    background-color: var(--bg-main);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   8. ANIMATION KEYFRAMES
+   ========================================== */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes morphing {
+    0%, 100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================
+   9. RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 8rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p:nth-of-type(2) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-logo img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .container {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .about-content {
+        padding: 1.5rem;
+    }
 }
